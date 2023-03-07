@@ -13,5 +13,6 @@ console.log("test test");
 otraFuncion();
 
 
-// Revisar y continuar 
-// https://rise.articulate.com/share/O0SjmUFcjx_3AXSA2lizESbHitgJIOpq#/lessons/H3jSzk43YFVoj8rUKopGYl_6tHuJe0Da
+// Para mí este ejemplo debería llamarse "cuidadoConElReturn" en vez de "cuidadoConElConsoleLog" ya que, 
+// si bien hace foco en no confundirse el return y el console.log, lo imnportante es simplemmente no ollvidarse
+// de indicar el return de una función ya que, si esto no está, la misma devolverá undefined.
