@@ -20,6 +20,8 @@ function mesesDelAño(array) {
 
       console.log(newArray);
       // TO DO: quitar los 'undefined' de newArray antes de retornar.
+      // debería hacer otro for loop eliminándolos. Poco eficiente. 
+      // probar otro approach
       return newArray;
    } else {
       console.log("No se encontraron los meses pedidos");
