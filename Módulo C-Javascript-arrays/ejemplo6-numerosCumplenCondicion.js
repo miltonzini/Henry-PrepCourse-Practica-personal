@@ -6,5 +6,3 @@ numeros.forEach((num) => {
         console.log(num);
     }
 });
-// probar luego hacer una variación en la que, dado un arreglo con diferentes valores, me devuelva solo los números 
-// (en caso de que los hubiera)
