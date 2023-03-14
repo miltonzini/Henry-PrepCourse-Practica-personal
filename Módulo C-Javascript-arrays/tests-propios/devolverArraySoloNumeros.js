@@ -9,3 +9,4 @@ for (var i = 0; i < arrayMixto.length; i++) {
 
 
 console.log(nuevoArray);
+return nuevoArray;
