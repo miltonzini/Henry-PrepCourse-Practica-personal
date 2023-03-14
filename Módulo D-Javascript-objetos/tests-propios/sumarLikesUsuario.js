@@ -1,6 +1,8 @@
-// Test
-const user = {
-    usernombre: 'Juan Carlos',
+// Sumar los likes del usuario. Variación de uno de los ejercicios del test.
+
+
+const user1 = {
+    nombre: 'Juan Carlos',
     password: 'JavaScript es genial!',
     posts: [
        {
@@ -32,18 +34,47 @@ const user = {
  };
 
 
+ const user2 = {
+   nombre: 'Lucas',
+   password: 'JavaScript es genial!',
+   posts: [
+      {
+         id: '1',
+         title: '10 cosas inolvidables',
+         likes: 5,
+      },
+      {
+         id: '2',
+         title: 'Blah',
+         likes: 5,
+      },
+      {
+         id: '3',
+         title: 'Qué es un objeto?',
+         likes: 10,
+      },
+      {
+         id: '4',
+         title: 'Conejos y perros',
+         likes: 11,
+      },
+      {
+         id: '5',
+         title: 'lorem ipsum',
+         likes: 13,
+      },
+   ],
+};
 
- function sumarLikesDeUsuario(objetoUsuario) {
-    // consigna original:
-    // El parámetro "objetoUsuario" tiene una propiedad llamada "posts" que es un arreglo.
-    // Este arreglo contiene objetos (post).
-    // Cada post posee una propiedad llamada "likes". Esta propiedad es un número.
-    // Debes sumar los likes de todos los post, imprmir y retornar el resultado.
+
+ function sumarLikesDeUsuario(objetoUsuario) {    
     var sumaLikes = 0;
     objetoUsuario.posts.forEach((post) => {
        sumaLikes += post.likes;
     });
-    console.log(sumaLikes);
+    console.log("los likes totales de " + objetoUsuario.nombre + " son: " + sumaLikes);
     return sumaLikes;
  }
- sumarLikesDeUsuario(user);
+ 
+ sumarLikesDeUsuario(user1);
+ sumarLikesDeUsuario(user2);
