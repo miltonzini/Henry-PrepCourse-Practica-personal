@@ -1,6 +1,5 @@
 // Sumar los likes del usuario. Variación de uno de los ejercicios del test.
 
-
 const user1 = {
     nombre: 'Juan Carlos',
     password: 'JavaScript es genial!',
@@ -12,8 +11,8 @@ const user1 = {
        },
        {
           id: '2',
-          title: 'Blablabla',
-          likes: 100,
+          title: 'Post Viral',
+          likes: 93,
        },
        {
           id: '3',
@@ -28,7 +27,7 @@ const user1 = {
        {
           id: '5',
           title: 'Educación online',
-          likes: 99,
+          likes: 91,
        },
     ],
  };
@@ -67,14 +66,34 @@ const user1 = {
 };
 
 
- function sumarLikesDeUsuario(objetoUsuario) {    
-    var sumaLikes = 0;
-    objetoUsuario.posts.forEach((post) => {
-       sumaLikes += post.likes;
-    });
-    console.log("los likes totales de " + objetoUsuario.nombre + " son: " + sumaLikes);
-    return sumaLikes;
- }
+function sumarLikesDeUsuario(objetoUsuario) {    
+   var sumaLikes = 0;
+   objetoUsuario.posts.forEach((post) => {
+      sumaLikes += post.likes;
+   });
+   console.log(objetoUsuario.nombre + " tiene un total de " + sumaLikes + " likes.");
+   return sumaLikes;
+}
  
- sumarLikesDeUsuario(user1);
- sumarLikesDeUsuario(user2);
+ 
+function mejorPost(objetoUsuario) {
+   var postIndex;
+   var biggestNumberOfLikes = 0;
+
+   for (let i = 0; i < objetoUsuario.posts.length; i++) {
+      if (objetoUsuario.posts[i].likes > biggestNumberOfLikes) {
+         biggestNumberOfLikes = objetoUsuario.posts[i].likes;
+         postIndex = i;
+      }
+   }
+   console.log("El mejor post de " + objetoUsuario.nombre + " tiene " + biggestNumberOfLikes + " likes y es el titulado " + "\"" + objetoUsuario.posts[postIndex].title + "\".");
+   return
+}
+
+sumarLikesDeUsuario(user1);
+mejorPost(user1);
+
+console.log(" ");
+
+sumarLikesDeUsuario(user2);
+mejorPost(user2);
