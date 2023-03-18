@@ -13,34 +13,21 @@ class Persona {
     }
 
     addFriend(nombre, edad) {
-    // El método 'addFriend' recibe un string 'nombre' y un entero 'edad' y debe agregar un objeto:
-    // { nombre: nombre, edad: edad} al arreglo de amigos de la persona.
-    // No debe retornar nada.
-
-    // Tu código aca:
-    var nuevoAmigo = {
-        nombre: nombre,
-        edad: edad,
-    }
-    this.amigos.push(nuevoAmigo);
+        var nuevoAmigo = {
+            nombre: nombre,
+            edad: edad,
+        }
+        this.amigos.push(nuevoAmigo);
     }
 
     addHobby(hobby) {
-    // El método 'addHobby' recibe un string 'hobby' y debe agregarlo al arreglo de hobbies de la persona.
-    // No debe retornar nada.
-
-    // Tu código aca:
+        this.hobbies.push(hobby);
 
     }
     getFriends() {
-    // El método 'getFriends' debe retornar un arreglo con sólo los nombres del arreglo de amigos
-    // de la persona.
-    // Ej:
-    // Suponiendo que la persona tiene estos amigos: [{nombre: 'martin', edad: 31},{nombre: 'toni', edad: 33}]
-    // persona.getFriends() debería devolver ['martin', 'toni']
-
-    // Tu código aca:
-
+        var newArray = this.amigos.map ((friend) => {return friend.nombre});
+        console.log(newArray);
+        return newArray;
     }
 
     getHobbies() {
@@ -80,8 +67,10 @@ var carlos = new Persona(
     [{nombre: "Esteban", edad: 42}, {nombre: "Lucas", edad: 38}]
     );
 
-//console.log(carlos);
 carlos.addFriend("Franco", 45);
-console.log(carlos);
+carlos.addFriend("Ana", 41);
 
-//var esteban = {nombre: "Esteban", edad: 42}
+carlos.addHobby("cocinar");
+
+carlos.getFriends();
+//console.log(carlos);
