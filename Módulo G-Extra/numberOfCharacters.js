@@ -6,17 +6,19 @@ function numberOfCharacters(string) {
     // Tu código:
     var array = string.split('');
     var objeto = {};
-    var caracteresYaAgregados = [];
-    // poblar "caracteresYaAgregados" con caracteres sin repetir
+    var caracteresSinRepetir = [];
     for (let i = 0; i < array.length; i++) {
-        if (!caracteresYaAgregados.includes(array[i])) caracteresYaAgregados.push(array[i]);
+        if (!caracteresSinRepetir.includes(array[i])) caracteresSinRepetir.push(array[i]);
     }
-    // ordenar caracteresYaAgregados;
-    var caracteresOrdenados = caracteresYaAgregados.sort();
-
-
-    console.log(caracteresOrdenados);
-    // 2) [crear las claves desde caracteresYaAgregados] contar cuántas veces están esos caracteres en array e ir sumandolos al valor correspondiente del objeto
+    var caracteresOrdenados = caracteresSinRepetir.sort();
+    for (let i = 0; i < caracteresOrdenados.length; i++) {
+        var suma = 0;
+        for (let j = 0; j < array.length; j++) {
+            if (array[j] === caracteresOrdenados[i]) suma++;
+        };
+        objeto[caracteresOrdenados[i]] = suma;
+    };
+    console.log(objeto);
  }
 
  numberOfCharacters('canica');
