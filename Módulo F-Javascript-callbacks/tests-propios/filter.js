@@ -1,21 +1,32 @@
-var array = ["conejo", "casa", "bote"];
+// Variación propia del ejercicio "callback / filter". Dado un array de strings. habrá una función "checkString" 
+// que chequeará si hay caractres que no sean letras, en cuyo caso los mandará a la funcioón "correctString" para
+//  que los quite, devolviendo una "stringCorregida". 
+// Luego hará el filtrado de aquellos que empiecen con la letra "c".
 
-function filter(arrayOfStrings) {
-    // Debes identificar todos los elementos el arreglo que comiencen con la letra "a".
-    // Luego retorna un nuevo arreglo con estos elementos.
-    // Tu código:
-    var nuevoArray = [];
+function checkString() {
+   // temp
+   console.log("pasó por checkString");
+}
+
+function correctString() {
+   // temp
+   console.log("pasó por correctString");
+}
+
+function correctAndFilter(arrayOfStrings, cbCheckString, cbCorrecString) {
+    var arrayFinal = [];
  
     for (let i = 0; i < arrayOfStrings.length; i++) {
        if (arrayOfStrings[i][0] === "c") {
-          nuevoArray.push(arrayOfStrings[i]);
+         arrayFinal.push(arrayOfStrings[i]);
        }
     }
 
-    console.log(nuevoArray);
+    console.log(arrayFinal);
  }
 
- filter(array);
  
- // En realidad no está usando callbacks, no sé por qué lo dieron en esta categoría
- // Elaborar algo propio como variación de esto que sí haga uso de callbacks.
+ var arraydePrueba = ["conejo", "casa", "bote", "stringmal34escrita", "cam8465844isa"];
+ correctAndFilter(arraydePrueba, checkString, correctString);
+ 
+ 
