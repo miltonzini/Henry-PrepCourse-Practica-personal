@@ -3,19 +3,55 @@
 //  que los quite, devolviendo una "stringCorregida". 
 // Luego hará el filtrado de aquellos que empiecen con la letra "c".
 
-function checkString(string) {
-   // temp
-   //console.log("pasó por checkString");
+// Función principal
+function correctAndFilter(arrayOfStrings, cbCheckString, cbCorrectString, letterToFilter) {
+   var letterToFilter = letterToFilter;
+   console.log("A continuación las palabras como fueron ingresadas: ")
+   console.log(arrayOfStrings);
+
+   var arrayFinal = [];
+
+   for (let i = 0; i < arrayOfStrings.length; i++) {
+      var isCorrect = cbCheckString(arrayOfStrings[i]); // 
+      var string = "";
+      if (isCorrect === false) {
+         string = cbCorrectString(arrayOfStrings[i]);
+         //console.log(string);
+      } else {
+         string = arrayOfStrings[i];
+      }
+      arrayFinal.push(string);
+   }
+
+   console.log(" ");
+   console.log("A continuación todas las palabras (corregidas si aplica): ")
+   console.log(arrayFinal);
+
+   var arrayFiltrado = [];
+   for (let i = 0; i < arrayFinal.length; i++) {
+      if (arrayFinal[i][0] === letterToFilter) {
+      arrayFiltrado.push(arrayFinal[i]);
+      }
+   }
+
+   console.log(" ");
+   console.log("A continuación las palabras que comienzan con la letra \'" + letterToFilter +  "\': ")
+   console.log(arrayFiltrado);
+
+ }
+
+// Función callback 1
+ function checkString(string) {
    var regex = /^[a-zA-Z]+$/; // all chars are letters
    if (regex.test(string)) {
       return true;
    } else {
-      console.log(string + " contiene otros caracteres"); // temp
       return false;
    }   
 }
 
-function correctString(string) { // SEGUIR TRABAJANDO
+// Función callback 2
+function correctString(string) {
    var tempArray = string.split('');
    var correctedArray = [];
    for (let i = 0; i < tempArray.length; i++) {
@@ -30,30 +66,6 @@ function correctString(string) { // SEGUIR TRABAJANDO
    
 }
 
-function correctAndFilter(arrayOfStrings, cbCheckString, cbCorrecString) {
-    var arrayFinal = [];
-
-   for (let i = 0; i < arrayOfStrings.length; i++) {
-      var isCorrect = checkString(arrayOfStrings[i]);
-      var string = "";
-      if (isCorrect === false) {
-         string = correctString(arrayOfStrings[i]);
-         console.log(string);
-      }
-   
-   }
-   // console.log("test asd");
-   // for (let i = 0; i < arrayOfStrings.length; i++) {
-   //    if (arrayOfStrings[i][0] === "c") {
-   //    arrayFinal.push(arrayOfStrings[i]);
-   //    }
-   // }
-
-    console.log(arrayFinal);
- }
-
  
- var arraydePrueba = ["conejo", "casa", "bote", "stringmal34escrita", "cam8465844isa"];
- correctAndFilter(arraydePrueba, checkString, correctString);
- 
- 
+ var arraydePrueba = ["conejo", "casa", "bote", "pe#rr987!o", "cam8465844isa", "ballena", "l56at65465a"];
+ correctAndFilter(arraydePrueba, checkString, correctString, "c");
